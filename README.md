@@ -7,7 +7,8 @@
 This repository provides Python scripts to:
 
 * **Compute refraction and reflection vectors** using generalized Snell’s Law for 3D incident rays.
-* **Visualize** the results in a 3D plot showing the incident, normal, refracted, and reflected vectors against the interface plane.
+* **Handle arbitrary dimensions**, allowing computations in 2D, 3D, or higher-dimensional vector spaces.
+* **Perform mode conversion calculations**, such as P-wave to S-wave (fast/slow shear) conversions in elastic media
 
 ## 🛠 Repository Structure
 
