@@ -1,22 +1,20 @@
 # Snell\_ND
 
-> A collection of Python scripts to compute and visualize the generalized Snell's Law, tailored for nondestructive testing and refractive index analysis.
+> Tools for computing and visualizing generalized Snell’s Law in nondestructive testing contexts.
 
 ## 📄 Project Overview
 
-This repository provides tools to:
+This repository provides Python scripts to:
 
-* **Calculate refraction angles** according to the generalized Snell's Law for different media.
-* **Generate plots** illustrating incident vs. refracted angles over a range of refractive indices.
-
-These scripts are useful for researchers and engineers working on optical/acoustic wave propagation in nondestructive evaluation (NDE) contexts.
+* **Compute refraction and reflection vectors** using generalized Snell’s Law for 3D incident rays.
+* **Visualize** the results in a 3D plot showing the incident, normal, refracted, and reflected vectors against the interface plane.
 
 ## 🛠 Repository Structure
 
-```bash
+```
 snell_ND/
-├── generalized_snell.py        # Computes refracted angle based on user inputs
-├── generalized_snell_plot.py   # Plots incident vs. refracted angles for given media
+├── generalized_snell.py        # Functions: snell() and snell_batch() for vector calculations
+├── generalized_snell_plot.py   # Script: imports snell(), plots vectors and interface plane in 3D
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project documentation
 ```
@@ -44,56 +42,58 @@ snell_ND/
    pip install -r requirements.txt
    ```
 
-   * **Primary libraries:** `numpy`, `matplotlib`
-
 ## 🚀 Usage
 
-### 1. Calculate a single refraction angle
+### 1. Computing Vectors in Python
 
-```bash
-python generalized_snell.py --incident-angle 30 --n1 1.0 --n2 1.5
+Import and call functions in an interactive session or another script:
+
+```python
+from generalized_snell import snell, snell_batch
+import numpy as np
+
+# Single incident vector
+incident = np.array([0.1, 0.1, 0.1])
+normal   = np.array([0.78,  0.0, 1.0])
+v1, v2 = 1.0, 2.0
+
+T, R = snell(incident, normal, v1, v2)
+print("Refraction vector:", T)
+print("Reflection vector:", R)
+
+# Batch of vectors
+incidents = np.array([[0.1, 0.1, 0.1], [0.2, 0.0, 0.1]])
+normals   = np.tile(normal, (2, 1))
+T_batch, R_batch = snell_batch(incidents, normals, v1, v2)
+print("Batch refractions:", T_batch)
 ```
 
-**Parameters:**
+### 2. Plotting in 3D
 
-* `--incident-angle`: Angle of incidence in degrees.
-* `--n1`: Refractive index of the first medium.
-* `--n2`: Refractive index of the second medium.
-
-**Output:**
-
-* Prints the computed refracted angle in degrees.
-
-### 2. Plot incident vs. refracted angles
+Run the plotting script to open an interactive 3D window:
 
 ```bash
-python generalized_snell_plot.py --n1 1.0 --n2 1.5 --max-angle 90
+python generalized_snell_plot.py
 ```
 
-**Parameters:**
+This will render:
 
-* `--n1`: Refractive index of the first medium.
-* `--n2`: Refractive index of the second medium.
-* `--max-angle`: Maximum incident angle to plot (in degrees).
-
-**Output:**
-
-* Displays a plot of incident vs. refracted angles.
-* Saves the plot to `snell_plot.png` by default.
+* The **interface plane**.
+* **Incident**, **Normal**, **Refraction**, and **Reflection** vectors.
 
 ## 📈 Example Output
 
 ![Snell Plot](snell_plot.png)
-*Example plot of incident vs. refracted angles.*
+*Example 3D visualization of Snell’s law vectors.*
 
 ## 📝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions, issues, and feature requests are welcome! Feel free to:
+
+* Fork the project.
+* Create a new branch for your feature or bugfix.
+* Submit a pull request.
 
 ## 📜 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-*Developed by Victor H. R. Machado*
