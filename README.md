@@ -1,6 +1,6 @@
 # Snell\_ND
 
-> Tools for computing and visualizing generalized Snell’s Law in nondestructive testing contexts.
+> Tools for computing and visualizing generalized Snell’s Law in N-dimensions.
 
 ## 📄 Project Overview
 
@@ -8,7 +8,10 @@ This repository provides Python scripts to:
 
 * **Compute refraction and reflection vectors** using generalized Snell’s Law for 3D incident rays.
 * **Handle arbitrary dimensions**, allowing computations in 2D, 3D, or higher-dimensional vector spaces.
-* **Perform mode conversion calculations**, such as P-wave to S-wave (fast/slow shear) conversions in elastic media
+* **Perform mode conversion calculations**, the reflected ray has a different velocity than the incident ray.
+
+Based on the equations from chapther 2.6 of:
+GLASSNER, Andrew S. Introduction to Ray Tracing. [S. l.]: Elsevier Science & Technology Books, 1989. ISBN 9780080499055.
 
 ## 🛠 Repository Structure
 
