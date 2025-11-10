@@ -13,6 +13,8 @@ This repository provides Python scripts to:
 Based on the equations from chapther 2.6 of:
 GLASSNER, Andrew S. Introduction to Ray Tracing. [S. l.]: Elsevier Science & Technology Books, 1989. ISBN 9780080499055.
 
+Desmos graphical calculator 2D example: https://www.desmos.com/calculator/1913943f7c
+
 ## 🛠 Repository Structure
 
 ```
