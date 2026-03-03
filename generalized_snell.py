@@ -42,3 +42,10 @@ def snell(incident, normal, v1, v2):
 
     # Return the refraction and reflection vectors
     return T, R
+
+def snell_batch(incident, normal, v1, v2):
+    T_batch = np.zeros_like((incident))
+    R_batch = np.zeros_like((incident))
+    for i in range(len(incident)):
+        T_batch[i], R_batch[i] = snell(incident[i], normal[i], v1, v2)
+    return T_batch, R_batch
