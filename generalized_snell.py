@@ -35,10 +35,10 @@ def snell(incident, normal, v1, v2):
     beta_reflect = -omega - np.sign(c) * ni
 
     # Compute the refraction vector
-    T = -h * incident + beta_refrac * normal
+    T = h * incident - beta_refrac * normal
 
     # Compute the reflection vector
-    R = -h * incident + beta_reflect * normal
+    R = h * incident - beta_reflect * normal
 
     # Return the refraction and reflection vectors
     return T, R
